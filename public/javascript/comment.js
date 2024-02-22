@@ -1,11 +1,10 @@
 async function commentFormHandler(event) {
     event.preventDefault();
 
-    const comment_text = document.querySelector('textarea[name="comment-body"]').ariaValueMax.trim();
+    const comment_text = document.querySelector('textarea[name="comment-body"]').innerText.trim();
 
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length -1
-    ];
+    const post_id = event.target.dataset.id;
+    console.log(post_id);
 
     if (comment_text) {
         const response = await fetch('/api/comments', {

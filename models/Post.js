@@ -14,7 +14,7 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            lan: [1]
+            len: [1]
         }
     },
     content: {
@@ -31,6 +31,8 @@ Post.init({
             key: 'id'
         }
     },
+},
+{
     sequelize,
     freezeTableName: true,
     underscored: true,

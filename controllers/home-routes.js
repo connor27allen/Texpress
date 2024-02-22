@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   
       const posts = postData.map(post => post.get({ plain: true }));
   
-      res.render('homepage', {
+      res.render('post-list', {
         posts,
         loggedIn: req.session.loggedIn
       });
@@ -38,6 +38,7 @@ router.get('/', async (req, res) => {
     }
   });
 
+  //single post view
   router.get('/post/:id', async (req, res) => {
     try {
       const postData = await Post.findOne({
@@ -62,14 +63,11 @@ router.get('/', async (req, res) => {
       });
   
       if (!postData) {
-        res.status(404).json({
-          message: 'No post found with this id'
-        });
+        res.redirect('/')
         return;
       }
   
       const post = postData.get({ plain: true });
-  
       res.render('single-post', {
         post,
         loggedIn: req.session.loggedIn

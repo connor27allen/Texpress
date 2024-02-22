@@ -26,6 +26,9 @@ User.init({
             len: [8]
         }
     },
+  
+},
+{
     sequelize,
     hooks: {
         async beforeCreate(newUserData) {

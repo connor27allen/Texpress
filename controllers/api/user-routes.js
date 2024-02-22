@@ -66,7 +66,7 @@ router.post('/', async (req, res) => {
         req.session.user_id = userData.id;
         req.session.username = userData.username;
         req.session.loggedIn = true;
-        res.json(dbUserData);
+        res.json(userData);
       });
     } catch (err) {
       console.log(err);

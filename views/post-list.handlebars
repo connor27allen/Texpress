@@ -1,0 +1,18 @@
+<ul class="post-list">
+    {{#if posts}}
+    {{#each posts as |post|}}
+    <li>
+        <a href="/post/{{post.id}}">
+            <h3>{{post.title}} </h3>
+        </a>
+        <p>{{post.content}}</p> 
+        <p>{{post.created_at}}</p>
+    </li>
+    {{/each}}
+    {{else}}
+    <li>No posts</li>
+    {{/if}}
+
+</ul>
+
+{{!-- id="{{ post.id }}" --}}
