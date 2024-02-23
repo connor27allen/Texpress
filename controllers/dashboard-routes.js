@@ -3,7 +3,9 @@ const sequelize = require('../config/connection');
 const { Post,  User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+
+router.get('/', withAuth, async (req, res) => {
+  
    try{
     const postData = await Post.findAll({
         where: {
@@ -78,15 +80,10 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     }
   });
 
-  router.get('/new', async (req, res) => {
-    try {
-      res.render('add-post', {
-        loggedIn: true
-      });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
+  router.get('/new', withAuth, async (req, res) => {
+    res.render('add-post', {
+      loggedIn: true
+    });
   });
 
   module.exports = router;

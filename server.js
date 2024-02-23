@@ -33,6 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
+app.get('*', (req, res) => {
+  res.status(404).send("Can't go there!");
+})
 
 const startServer = async () => {
   try {
