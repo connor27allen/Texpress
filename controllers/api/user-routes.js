@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     });
     res.json(userData);
   } catch (err) {
-    console.log(err);
+    
     res.status(500).json(err);
   }
 });
@@ -49,7 +49,7 @@ router.get('/:id', async (req, res) => {
     }
     res.json(userData);
   } catch (err) {
-    console.log(err);
+    
     res.status(500).json(err);
   }
 });
@@ -69,7 +69,7 @@ router.post('/', async (req, res) => {
       res.json(userData);
     });
   } catch (err) {
-    console.log(err);
+    
     res.status(500).json(err);
   }
 });
@@ -107,7 +107,7 @@ router.post('/login', async (req, res) => {
       message: 'You are now logged in!'
     });
   } catch (err) {
-    console.log(err);
+    
     res.status(500).json(err);
   }
 });

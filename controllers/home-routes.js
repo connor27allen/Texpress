@@ -7,7 +7,7 @@ const {
 } = require('../models');
 
 router.get('/', async (req, res) => {
-  console.log(req.session.user_id)
+  
   try {
     const postData = await Post.findAll({
       attributes: ['id', 'title', 'content', 'created_at'],
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
       loggedIn: req.session.loggedIn
     });
   } catch (err) {
-    console.log(err);
+    
     res.status(500).json(err);
   }
 });
@@ -74,7 +74,7 @@ router.get('/post/:id', async (req, res) => {
       loggedIn: req.session.loggedIn
     });
   } catch (err) {
-    console.log(err);
+    
     res.status(500).json(err);
   }
 });

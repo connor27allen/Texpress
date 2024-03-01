@@ -33,7 +33,7 @@ router.get('/', withAuth, async (req, res) => {
         loggedIn: true
     });
    } catch (err) {
-    console.log(err);
+    
     res.status(500).json(err);
    }
 });
@@ -75,7 +75,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         loggedIn: true
       });
     } catch (err) {
-      console.log(err);
+      
       res.status(500).json(err);
     }
   });

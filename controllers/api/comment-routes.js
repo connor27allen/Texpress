@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
         res.json(commentData);
     } catch (err) {
-        console.log(err);
+        
 
         res.status(500).json(err);
     }
@@ -26,7 +26,7 @@ router.post('/', withAuth, async (req, res) => {
         });
         res.json(commentData)
     } catch (err) {
-        console.log(err);
+        
         res.status(400).json(err);
     }
 });
